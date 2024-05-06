@@ -1,0 +1,79 @@
+<!--pages/index/index.wxml-->
+<view class="banner">
+    <swiper class="swip_main" indicator-dots autoplay interval="6000" circular>
+        <block wx:for="{{mglist}}">
+            <swiper-item >
+                <image style="width: 100%; height: 100%;" mode="scaleToFill" src="{{item}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!-- 公告部分 -->
+<view class="tz">
+    <view class="tz_zp">
+    <image src="../../images/公告11.png"></image>
+    </view>
+    <swiper class="swiper-news-top" vertical="true" autoplay="true" circular="true" interval="3000">
+        <block wx:for="{{msgList}}" >
+                <swiper-item>
+                    <view class="swiper_item" >{{item.text}}</view>
+                </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!-- 公告部分 -->
+<!-- 餐厅部分 -->
+<view class="nav">
+    <view class="nav-banner"  bindtap=''>
+        <view class="nav-banner-img">
+            <image src="../../images/24gl-building.png"></image>
+        </view>
+        <view class="nav-banner-text" >第一餐厅</view>
+    </view>
+    <view class="nav-banner" bindtap=''>
+        <view class="nav-banner-img">
+            <image src="../../images/24gl-city.png"></image>
+        </view>
+        <view class="nav-banner-text">第二餐厅</view>
+    </view>
+    <view class="nav-banner" bindtap=''>
+        <view class="nav-banner-img">
+            <image src="../../images/24gl-city3.png"></image>
+        </view>
+        <view class="nav-banner-text">第三餐厅</view>
+    </view>
+    <view class="nav-banner" bindtap=''>
+        <view class="nav-banner-img">
+            <image src="../../images/24gl-city4.png"></image>
+        </view>
+        <view class="nav-banner-text">第四餐厅</view>
+    </view>
+</view>
+<!-- 餐厅部分 -->
+<!-- 店铺部分 -->
+<view class="rmbs">
+    <view class="rmbs-title">
+        <view class="rmbs-title-text">热门店铺</view>
+        <view class="rmbs-title-more" bindtap='showlist'>查看更多 ></view>
+    </view>
+    <view class="rmbs-list" wx:for="{{rmbs}}" wx:for-item="item" wx:key="_id"  bindtap='showbs' data-storename="{{item.storename}}" id="{{item._id}}" wx:if="{{index<10}}">
+        <view class="rmbs-list-photo">
+            <image src="{{item.photo}}"></image>
+        </view>
+        <view class="rmbs-list-text">
+            <view class="rmbs-list-text-tit1">{{item.storename}}</view>
+            <view class="rmbs-list-text-jj">{{item.brief}}</view>
+            <view class="rmbs-list-text-tit2">餐厅：{{item.canteen}}</view>
+            <view class="rmbs-list-text-tit3">
+                <view class="rmbs-list-text-btn" style="background-color: rgb(26, 69, 134);" wx:if="{{item.btn1!=''}}">{{item.btn1}}</view>
+                <view class="rmbs-list-text-btn" style="background-color: rgb(24, 122, 29);" wx:if="{{item.btn2!=''}}">{{item.btn2}}</view>
+                <view class="rmbs-list-text-btn" style="background-color: coral;" wx:if="{{item.btn3!=''}}">{{item.btn3}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 店铺部分 -->
+
+
+
+

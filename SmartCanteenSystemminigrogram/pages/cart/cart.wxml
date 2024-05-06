@@ -1,0 +1,45 @@
+<!--pages/cart/cart.wxml-->
+<view class="wdl_ban" wx:if="{{user_id==''}}">
+    <view class="wdl">
+        <image src="../../images/失败.png"></image>
+    </view>
+    <view class="text_main">还未授权登录，请授权登录</view>
+    <button type="default" bindtap='showsq' class="btn_sq">去登录</button>
+</view>
+<view class="contmian" wx:if="{{user_id!=''}}">
+    <view class="mian_box"  wx:for="{{rmb}}" wx:for-item="item" wx:for-index="index" wx:key="_id" >
+        <view class="main_box_left">
+            <image src="{{item.photo}}" class="zszp"></image>
+        </view>
+        <view class="main_box_right">
+            <view class="tit_zs">{{item.foodname}}</view>
+            <view class="pl">配料:{{item.ingredients}}</view>
+            <view class="pl">月售:{{item.salesv}}</view>
+            <view class="jg">￥ {{item.price}}</view>
+            <view class="num" wx:if="{{buttonshow[index]==false}}">
+                <view class="reduce" bindtap="reduce" data-id="{{item.id}}" data-index="{{index}}">-</view>
+                <view class="number"  maxlength="2" >{{cartnum[index]}}</view>
+                <view class="add" bindtap="add" data-id="{{item.id}}" data-index="{{index}}">+</view>
+           </view>
+            <button size="mini" type="primary" bindtap="addCart" data-index="{{index}}" id="{{item._id}}" class="btn_9"  wx:if="{{ buttonshow[index]==true }}">加入购物车</button>
+        </view>  
+    </view> 
+</view> 
+<!-- 空行 -->
+<view style="height: 100rpx;">
+</view> 
+<!-- 空行 -->
+
+<view class="jiesuan" wx:if="{{user_id!=''}}">
+    <view class="cart">
+        <image src = "../../images/采购 (2).png"></image>
+    </view>
+    <view class="heji">
+        <p>合计</p><view class="allmoney">{{allmoney}}</view>
+        <!--间隔一下,这里可以是微信支付图标-->
+        <view style="width: 10rpx;">  </view>   
+        <view wx:if="{{allmoney!='0.00'}}" class="blue jiebut" bindtap="payAll"><p>结算</p>({{allmoney}})</view>
+        <view wx:else class="jiebut"><p>结算</p>({{allmoney}})</view>
+    </view>
+</view>
+  

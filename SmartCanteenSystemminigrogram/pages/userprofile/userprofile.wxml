@@ -1,0 +1,48 @@
+<!--pages/userprofile/userprofile.wxml-->
+<view class="topbanner"> 
+    <view class="toplogo">
+        <!-- <open-data type="userAvatarUrl"></open-data> -->
+        <image class="toplogo" src="{{avatar}}"></image>
+    </view>
+    <view class="toptext">
+      <view class="user-name" >用户名：{{nickname}}</view>
+      <view class="user-name2">余额：{{balance}}</view>
+      <view class="user-name3" >UID：{{user_id}}</view>
+    <!-- <open-data type="userNickName" lang="zh_CN" class="user-name"></open-data>  
+    <view class="user-name2">爱国、敬业、求实、创新</view> -->
+    </view>
+</view>
+<view class="fqzd-ban">
+    <view class="row">
+        <view class="text1">姓名：</view>
+        <view class="text2" wx:if="{{change == '0'}}">{{name}}</view>
+        <input class="text2" wx:if="{{change == '1'}}" value="{{name}}" bindinput="getinput" id="name" placeholder="姓名" />
+    </view>
+    <view class="row">
+        <view class="text1">电话：</view>
+        <view class="text2" wx:if="{{change == '0'}}">{{phone}}</view>
+        <input class="text2" wx:if="{{change == '1'}}" value="{{phone}}" bindinput="getinput" id="phone" placeholder="电话" />
+    </view>
+    <view class="row">
+        <view class="text1">学院：</view>
+        <view class="text2" wx:if="{{change == '0'}}">{{school}}</view>
+        <input class="text2" wx:if="{{change == '1'}}" value="{{school}}" bindinput="getinput" id="school" placeholder="学院" />
+    </view>
+    <view class="row">
+        <view class="text1">地址：</view>
+        <view class="text2" wx:if="{{change == '0'}}">{{address}}</view>
+        <input class="text2" wx:if="{{change == '1'}}" value="{{address}}" bindinput="getinput" id="address" placeholder="地址" />
+    </view>
+    <view class="row">
+        <view class="text1">年龄：</view>
+        <view class="text2" wx:if="{{change == '0'}}">{{age}}</view>
+        <input class="text2" wx:if="{{change == '1'}}" value="{{age}}" bindinput="getinput" id="age" placeholder="年龄" />
+    </view> 
+    <view class="row">
+        <view class="text1">vip：</view>
+        <view class="text2" wx:if="{{change == '0'}}">{{vip}}</view>
+        <input class="text2" wx:if="{{change == '1'}}" value="{{vip}}" bindinput="getinput" id="vip" placeholder="no" />
+    </view>
+    <button type="default" style="margin-top:20rpx;margin-bottom:60rpx" bindtap='changeinfo' wx:if="{{change == '0'}}">修改</button>
+    <button type="default" style="margin-top:20rpx;margin-bottom:60rpx" bindtap='changeinfotoserver' wx:if="{{change == '1'}}">提交</button>
+</view>

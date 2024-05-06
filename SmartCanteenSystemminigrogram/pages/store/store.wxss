@@ -1,0 +1,130 @@
+/* pages/store/store.wxss */
+
+/* .search{
+    position: relative;
+    width: 90%;
+    margin: 40rpx auto;
+   }
+   .search input{
+    border:1px solid #ccc;
+    border-radius: 6px;
+    height: 30px;
+    padding-left: 30rpx;
+   }
+   .search button{
+      position: relative;
+      right: 20px;
+      height: 30px;
+   }
+   .icons{
+    position: relative;
+    right: 20px;
+    top:5px;
+   } */
+.search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:200rpx;
+    margin: 40rpx auto;
+    margin-top: 0;
+    background-color: #0092DF;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx rgb(180, 180, 180);
+    
+}
+
+.search input {
+    flex: 1; /* 输入框占据剩余空间 */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 30px;
+    margin-left: 40rpx;
+    padding-left: 30rpx;
+    border-radius: 10rpx;
+    font-weight: 600;
+    font-size: 30rpx;
+}
+
+.search button {
+  background-color: white;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #ccc; /* 添加边框样式 */
+    border-radius: 10rpx;
+    margin-right: 40rpx;
+}
+
+.icons {
+    position: relative; /* 如果需要相对定位的话 */
+    right: 30rpx; /* 根据需要微调位置 */
+    top: -20rpx;
+}
+.rmbs-list{
+    width: 100%;
+    height: 250rpx;
+    margin-top: 10rpx;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx rgb(180, 180, 180);
+}
+.rmbs-list-photo{
+    width: 30%;
+    height: 80%;
+    float: left;
+    margin-top: 25rpx;
+    margin-left: 20rpx;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 10rpx;
+}
+.rmbs-list-photo image{
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+.rmbs-list-text{
+    float: right;
+    width: 55%;
+    height: 100%;
+}
+.rmbs-list-text-tit1{
+    font-size: 30rpx;
+    font-weight: 700;
+    margin-top: 25rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 85%;
+    
+}
+.rmbs-list-text-jj{
+    width: 100%;
+    height:60rpx ;
+    font-size: 23rpx;
+    color: rgb(192, 192, 192);
+}
+.rmbs-list-text-tit2{
+    font-size: 20rpx;
+    margin-top: 10rpx;
+    color: rgb(205, 133, 63);
+}
+.rmbs-list-text-btn{
+    width: 80rpx;
+    height: 30rpx;
+    background-color: beige;
+    font-size: 17rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    line-height: 30rpx;
+    float: left;
+    margin-right: 10rpx;
+    color: white;
+    background-color: darkmagenta;
+}
+.rmbs-list-text-tit3{
+    margin-top: 10rpx;
+}
+.rmbs{
+    width: 90%;
+    margin: 0 auto;
+    height: 800rpx;
+    margin-top: 30rpx;
+}

@@ -1,0 +1,136 @@
+<!--pages/dingdan/dingdan.wxml-->
+
+<!-- 获取timestamp -->
+<wxs src="../../utils/timestamp.wxs" module="time"/> 
+<!-- 登录授权 -->
+<view class="qsy" wx:if="{{user_id==''}}">
+    <view class="wdl">
+        <image src="../../images/失败.png"></image>
+    </view>
+    <view class="text_main" style = "text-align: center;margin-top: -10rpx;color:rgb(122, 121, 119)">您还未授权登录，请授权登录！</view>
+    <button bindtap="showsq" size="default" class="btn_sq" type="default">去登录</button>
+</view>
+<!-- 登录授权 -->
+
+<!-- 无订单 -->
+<!-- <view class="qsy" wx:if="{{user_id!=''&&orderids==[]}}">
+    <view class="mydd">
+        <image src="../../images/font-ui/zwjl.png"></image>
+    </view>
+    <view class="text_wydd">暂无订单</view>
+</view> -->
+<!-- 无订单 -->
+
+<!-- 待取订单 -->
+<block class="text_main1" wx:for="{{orderids}}" wx:for-item="item" wx:for-index="index" wx:key="_id" wx:if="{{orderfetchedShow==false}}">
+    <view class="main_gwc">
+        <view class="title">
+          <view class="titleleft">
+            <button style = "font-size: 30rpx;" size="mini" type="primary" class="sp_btn" id="{{item._id}}"  bindtap="openlocker" data-orderid = "{{item.orderid}}" data-reserved_locker_id = "{{item.reserved_locker_id}}">{{item.reserved_locker_id}}号餐柜取餐</button>
+          </view>
+          <view class="titleright">
+            <view class="titleup">
+              <view >下单时间：{{time.timestampToDate('yyyy-MM-DD hh:mm:ss', item.timestamp1)}}
+              </view>
+            </view>
+            <view class="titledown">
+              <view >订单号：{{item.orderid}}</view> 
+            </view>
+          </view> 
+        </view>
+        <!-- 注意这里用bolck -->
+        <block wx:for="{{allorder[index]}}" wx:for-item="item1" wx:for-index="index1" wx:key="_id">
+          <!-- <view class="body"> -->
+            <view class="zp_sp">
+                <image src='{{item1.photo}}'></image>
+            </view>
+            <view class="zp_nrl1">
+              <view class="title_zpnrl" style= "font-size: 20rpx;">
+                    店铺：{{item1.storename}}
+              </view>
+              <view class="title_zpnrl" style= "font-size: 20rpx;">
+                    品名：{{item1.foodname}}
+              </view>
+            </view>
+            <view class="zp_nrl">
+                <view class="title_zpnrl1">
+                    单价：￥{{item1.price}}
+                </view>
+                <view class="title_zpnrl">
+                  数量：x{{item1.number}}
+                </view>
+            </view>
+          <!-- </view> -->
+        </block>
+    </view>
+</block>  
+<!-- 待取订单 -->
+
+<!-- 已取订单 -->
+<block class="text_main1" wx:for="{{orderfetchedids}}" wx:for-item="item" wx:for-index="index" wx:key="_id" wx:if="{{orderfetchedShow==true}}">
+    <view class="main_gwc">
+        <view class="title">
+          <view class="titleleft">
+            <view style="font-size: 30rpx; font-weight: 600; color:red;margin-top:20rpx;margin-left:20rpx;">已取餐</view>
+          </view>
+          <view class="titleright">
+            <view class="titleup">
+              <view >取餐时间：{{time.timestampToDate('yyyy-MM-DD hh:mm:ss', item.timestamp2)}}
+              </view>
+            </view>
+            <view class="titledown">
+              <view >订单号：{{item.orderid}}</view> 
+            </view>
+          </view> 
+        </view>
+        <!-- 注意这里用bolck -->
+        <block wx:for="{{allfetchedorder[index]}}" wx:for-item="item1" wx:for-index="index1" wx:key="_id">
+          <!-- <view class="body"> -->
+            <view class="zp_sp">
+                <image src='{{item1.photo}}'></image>
+            </view>
+            <view class="zp_nrl1">
+              <view class="title_zpnrl" style= "font-size: 20rpx;">
+                    店铺：{{item1.storename}}
+              </view>
+              <view class="title_zpnrl" style= "font-size: 20rpx;">
+                    品名：{{item1.foodname}}
+              </view>
+            </view>
+            <view class="zp_nrl">
+                <view class="title_zpnrl1">
+                    单价：￥{{item1.price}}
+                </view>
+                <view class="title_zpnrl">
+                  数量：x{{item1.number}}
+                </view>
+            </view>
+          <!-- </view> -->
+        </block>
+    </view>
+</block>  
+<!-- 已取订单 -->
+
+<!-- 空行 -->
+<view style="height: 150rpx;width:100%;">
+</view>
+<!-- 空行 -->
+
+<!-- 下层选择栏 -->
+<view class="bottomtab" wx:if="{{user_id!=''}}">
+        <view class="left_box"  bind:tap="fetch">
+          <view class="zpq">
+                <image src="../../images/订单 (1).png"></image>
+            </view>
+            <view wx:if="{{orderfetchedShow==false}}" class="text_qjj text_select">待取订单</view> 
+            <view wx:else class="text_unselect text_qjj">待取订单</view>  
+        </view>
+        <view class="right_box" bind:tap="fetched">
+          <view class="zpq">
+                <image src="../../images/订单.png"></image>
+            </view>
+            <view wx:if="{{orderfetchedShow==true}}" class="text_qjj text_select">已取订单</view> 
+            <view wx:else class="text_qjj text_unselect">已取订单</view> 
+        </view>
+</view>
+<!-- 下层选择栏 -->

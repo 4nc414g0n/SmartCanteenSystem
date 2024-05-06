@@ -1,0 +1,58 @@
+{
+  "pages": [
+    
+      "pages/index/index",
+      "pages/user/user",
+      "pages/store/store",
+      "pages/order/order",
+      "pages/cart/cart",
+      "pages/userprofile/userprofile"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#066BB5",
+        "navigationBarTitleText": "莆田学院智慧校园食堂",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "color": "#a9b7b7",
+        "selectedColor": "#11cd6e",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/首页13.png",
+                "selectedIconPath": "images/首页13.png",
+                "text": "首页",
+                "textStyle": "bold"
+            },
+            {
+                "pagePath": "pages/store/store",
+                "iconPath": "images/产品10.png",
+                "selectedIconPath": "images/产品10.png",
+                "text": "店铺",
+                "textStyle": "bold"
+            },
+            {
+                "pagePath": "pages/order/order",
+                "iconPath": "images/订单 (3) (1).png",
+                "selectedIconPath": "images/订单 (3) (1).png",
+                "text": "订单",
+                "textStyle": "bold"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "iconPath": "images/我的11 (2).png",
+                "selectedIconPath": "images/我的11 (2).png",
+                "text": "用户",
+                "textStyle": "bold"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+        "weui": true
+    }
+}

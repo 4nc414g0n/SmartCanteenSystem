@@ -1,0 +1,101 @@
+<!--pages/user/user.wxml-->
+<!-- 显示弹窗-->
+<view class = "pop-bg" wx:if="{{isShow1==true||isShow2==true}}" bind:tap="hidepop" data-canclose="{{true}}"></view>
+<view class = "pop-block1" wx:if="{{isShow1==true}}">
+  <input value="{{addbalance}}" bindinput="getinput" placeholder="100.00" />
+  <button bind:tap="pay" type="default">确认充值</button>
+</view>
+<view class = "pop-block2" wx:if="{{isShow2==true}}">
+  <canvas canvas-id='canvas'></canvas>
+</view>
+<!-- 显示弹窗-->
+
+
+
+<!-- 显示信息 全局有一定有缓存-->
+  <view class="topbanner"  wx:if="{{openid != ''&& submit!='yes'}}"> 
+    <view class="toplogo">
+        <!-- <open-data type="userAvatarUrl" src="{{avatar}}"></open-data> -->
+        <image class="toplogo" src="{{tmpnickname}}"></image>
+    </view>
+    <view class="toptext">
+    <!-- <open-data type="userNickName" lang="zh_CN" class="user-name">{{nickname}}</open-data>   -->
+    <view class="user-name">用户名：{{nickname}}</view>
+    <view class="user-name2">余额：￥{{balance}}</view>
+    <view class="user-name3">UID：{{user_id}}</view>
+    </view>
+</view>
+<!-- 显示信息 -->
+<!-- 点击登录后跳到提交信息 -->
+<view class="topbanner"  wx:if="{{submit=='yes'}}"> 
+  <view class = "submitup">
+    <button style="height: 150rpx; width:150rpx;margin-top: 50rpx;margin-left: 160rpx;" class="submitupleft" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image style= "height:150rpx;width:150rpx;margin-left: -48rpx;margin-top: -17rpx;" src="{{tmpnickname}}"></image>
+    </button> 
+    <input type="nickname" class="submitupright" value="{{nickname}}" bindinput="nickName" placeholder="请输入昵称" />
+  </view>
+  <button class="submitdown" bindtap="login" type="default" style="margin-top: 70rpx;">确认提交</button>
+</view>
+<!-- 点击登录后跳到提交信息 -->
+<!-- 提示登录 全局没有缓存没有-->
+<view class="topbanner" wx:if="{{openid=='' && submit=='no'}}"> 
+    <view class="topban1">选择头像昵称以授权登录</view>
+    <view class="topban1">去授权登录</view>
+    <button bindtap="setsubmit" type="default">登录</button>
+</view>
+<!-- 提示登录 -->
+<view class="banner-xx">
+    <view class="ban-t" bindtap='showgrzl' id="{{openid}}">
+        <view class="ban-row">
+            <view class="ban-im">
+                <image src="../../images/我的13 (1).png"></image>
+            </view>
+            <view class="ban-tx">
+                个人资料
+            </view>
+        </view>
+    </view>
+    <view class="ban-t" bind:tap="showpop">
+        <view class="ban-row">
+            <view class="ban-im">
+                <image src="../../images/付款 (2).png"></image>
+            </view>
+            <view class="ban-tx">
+                余额充值
+            </view>
+        </view>
+    </view>
+    <view class="ban-t" bindtap='showqrcode'>
+        <view class="ban-row">
+            <view class="ban-im">
+                <image src="../../images/付款码 (2) (1).png"></image>
+            </view>
+            <view class="ban-tx">
+                QR支付
+            </view>
+        </view>
+    </view>
+    <view class="ban-t">
+        <view class="ban-row">
+            <view class="ban-im">
+                <image src="../../images/文档23 (2).png"></image>
+            </view>
+            <view class="ban-tx">
+                其他功能
+            </view>
+        </view>
+    </view>
+    <!-- <view class="ban-t" bindtap='showgsj' id="{{openid}}"> -->
+    <view class="ban-t" >
+        <view class="ban-row">
+            <view class="ban-im">
+                <image src="../../images/文档23 (2).png"></image>
+            </view>
+            <view class="ban-tx">
+                其他功能
+            </view>
+        </view>
+    </view>
+</view>
+
+
